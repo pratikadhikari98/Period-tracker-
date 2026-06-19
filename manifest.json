@@ -1,0 +1,43 @@
+{
+  "name": "पिरेड ट्र्याकर — श्री दुर्गा वैदिक संस्कृत विद्यापीठ",
+  "short_name": "पिरेड ट्र्याकर",
+  "description": "कक्षा ६–१२ को रियल-टाइम पिरेड ट्र्याकर",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d2640",
+  "theme_color": "#1a3a5c",
+  "lang": "ne",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "utilities"],
+  "shortcuts": [
+    {
+      "name": "कक्षा अनुसार",
+      "short_name": "कक्षा",
+      "description": "कक्षा अनुसार पिरेड हेर्नुहोस्",
+      "url": "./index.html#class",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "शिक्षक अनुसार",
+      "short_name": "शिक्षक",
+      "description": "शिक्षक अनुसार पिरेड हेर्नुहोस्",
+      "url": "./index.html#teacher",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
