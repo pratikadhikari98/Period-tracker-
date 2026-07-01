@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCYPE html>
 <html lang="ne">
 <head>
 <meta charset="UTF-8">
@@ -11,6 +11,21 @@
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>श्री दुर्गा वैदिक संस्कृत विद्यापीठ</title>
+<meta property="og:site_name" content="श्री दुर्गा वैदिक संस्कृत विद्यापीठ">
+<meta property="og:title" content="श्री दुर्गा वैदिक संस्कृत विद्यापीठ">
+<meta property="og:description" content="श्री दुर्गा वैदिक संस्कृत विद्यापीठ — रियल-टाइम पिरेड ट्र्याकर">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pratikadhikari98.github.io">
+<link rel="canonical" href="https://pratikadhikari98.github.io">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "श्री दुर्गा वैदिक संस्कृत विद्यापीठ",
+  "url": "https://pratikadhikari98.github.io",
+  "description": "श्री दुर्गा वैदिक संस्कृत विद्यापीठ — रियल-टाइम पिरेड ट्र्याकर"
+}
+</script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700;900&display=swap');
 
@@ -102,107 +117,38 @@ body {
   background: transparent;
   color: var(--text);
   text-align: center;
-  padding: 11px 16px;
+  padding: 18px 16px 10px;
   display: flex; justify-content: center; align-items: center;
-  gap: 16px;
 }
-.clock-inner { display: flex; flex-direction: column; align-items: center; gap: 2px; width: 100%; }
-.clock-time-row { display: flex; align-items: center; gap: 0; }
+.clock-inner { display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%; }
+.analog-clock-wrap {
+  position: relative;
+  width: 170px; height: 170px;
+  margin: 0 auto 6px;
+}
+.analog-clock-svg {
+  width: 170px; height: 170px;
+  filter: drop-shadow(0 6px 24px rgba(26,58,92,0.22));
+}
+.clock-digital-row {
+  display: flex; align-items: baseline; gap: 2px;
+  margin-top: 2px;
+}
 .clock-time {
-  font-size: 2.6rem; font-weight: 900; color: var(--primary);
-  letter-spacing: 3px; font-variant-numeric: tabular-nums; line-height: 1;
-  font-style: italic;
+  font-size: 1.55rem; font-weight: 900; color: var(--primary);
+  letter-spacing: 2px; font-variant-numeric: tabular-nums; line-height: 1;
 }
 .clock-seconds {
-  font-size: 2.6rem; font-weight: 900; color: var(--primary);
-  letter-spacing: 3px; font-variant-numeric: tabular-nums; line-height: 1;
-  font-style: italic;
+  font-size: 1rem; font-weight: 700; color: var(--accent);
+  letter-spacing: 1px; font-variant-numeric: tabular-nums; line-height: 1;
 }
 .clock-ampm {
-  font-size: 2.6rem; font-weight: 900; color: var(--primary);
-  letter-spacing: 3px; margin-left: 6px; align-self: center; font-style: italic;
+  font-size: 0.78rem; font-weight: 700; color: var(--muted);
+  margin-left: 4px; align-self: center;
 }
-.clock-date { font-size: 0.73rem; color: var(--muted); margin-top: 2px; }
+.clock-date { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
 
-/* ── HEARTBEAT ── */
-/* ── ANIM PICKER ── */
-.anim-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 8px;
-  gap: 6px;
-  width: 100%;
-}
-.anim-canvas-wrap {
-  width: 100%;
-  height: 44px;
-  position: relative;
-  overflow: hidden;
-}
-#animCanvas {
-  width: 100%;
-  height: 44px;
-  display: block;
-}
-.anim-dots-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  gap: 5px;
-  align-items: center;
-  padding: 2px 6px;
-  border-radius: 20px;
-  transition: background 0.2s;
-}
-.anim-dots-btn:hover { background: rgba(0,0,0,0.06); }
-.anim-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--primary);
-  opacity: 0.35;
-  transition: opacity 0.2s, transform 0.2s;
-}
-.anim-dot.active { opacity: 1; transform: scale(1.3); }
-/* Picker popup */
-.anim-picker {
-  display: none;
-  position: fixed;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.22);
-  padding: 8px;
-  gap: 4px;
-  flex-direction: column;
-  z-index: 9999;
-  width: 200px;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 50%;
-  margin-top: -160px;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-.anim-picker.show { display: flex; }
-.anim-option {
-  display: flex; align-items: center; gap: 10px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text);
-  transition: background 0.15s;
-  border: none;
-  background: none;
-  font-family: inherit;
-  width: 100%;
-  text-align: left;
-}
-.anim-option:hover { background: var(--bg); }
-.anim-option.selected { background: rgba(26,58,92,0.1); color: var(--primary); }
-.anim-option .anim-icon { font-size: 1.1rem; }
+
 
 /* ── CURRENT PERIOD BANNER ── */
 .current-banner {
@@ -339,84 +285,7 @@ tr:hover td { background: rgba(0,0,0,0.02); }
 .class-cell { background: var(--primary); color: white; font-weight: 900; font-size: 0.86rem; }
 .break-cell { background: #c62828; color: white; font-weight: 700; font-size: 0.6rem; }
 
-/* ── WIDGET SECTION ── */
-.widget-section { padding: 0 13px 20px; }
-.widget-title { font-size: 0.72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
 
-.widget-preview {
-  display: flex; flex-direction: column; gap: 10px;
-  margin-bottom: 16px;
-}
-
-/* Small Widget */
-.widget-sm {
-  width: 155px; height: 155px;
-  border-radius: 22px;
-  padding: 14px;
-  background: var(--header-grad);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
-  color: white;
-  display: flex; flex-direction: column; justify-content: space-between;
-  position: relative; overflow: hidden;
-}
-.widget-sm::before {
-  content: ''; position: absolute;
-  top: -20px; right: -20px;
-  width: 80px; height: 80px; border-radius: 50%;
-  background: rgba(255,255,255,0.05);
-}
-.w-label { font-size: 0.58rem; opacity: 0.65; text-transform: uppercase; letter-spacing: 0.8px; }
-.w-period { font-size: 1.3rem; font-weight: 900; color: var(--gold); line-height: 1.1; margin-top: 2px; text-shadow: 0 0 10px rgba(245,166,35,0.4); }
-.w-time { font-size: 0.62rem; opacity: 0.75; margin-top: 3px; }
-.w-progress { height: 3px; border-radius: 4px; background: rgba(255,255,255,0.2); margin-top: 6px; }
-.w-progress-fill { height: 3px; border-radius: 4px; background: var(--gold); }
-
-/* Medium Widget */
-.widget-md {
-  width: 100%;
-  max-width: 340px;
-  height: 155px;
-  border-radius: 22px;
-  padding: 14px 16px;
-  background: var(--header-grad);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
-  color: white;
-  display: flex; flex-direction: column; justify-content: space-between;
-  position: relative; overflow: hidden;
-}
-.widget-md::after {
-  content: ''; position: absolute;
-  bottom: -30px; right: -30px;
-  width: 100px; height: 100px; border-radius: 50%;
-  background: rgba(255,255,255,0.04);
-}
-.w-md-top { display: flex; justify-content: space-between; align-items: flex-start; }
-.w-md-school { font-size: 0.6rem; opacity: 0.65; max-width: 60%; line-height: 1.3; }
-.w-md-time { font-size: 1rem; font-weight: 900; color: var(--gold); }
-.w-md-period { font-size: 1.5rem; font-weight: 900; color: white; line-height: 1; }
-.w-md-sub { font-size: 0.68rem; opacity: 0.7; margin-top: 2px; }
-.w-md-remaining { font-size: 0.62rem; color: var(--gold-light); font-weight: 600; margin-top: 4px; }
-
-/* Widget rows */
-.widget-row { display: flex; gap: 10px; align-items: flex-start; }
-
-.widget-hint {
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 12px 14px;
-  box-shadow: var(--shadow-card);
-  font-size: 0.76rem;
-  color: var(--muted);
-  line-height: 1.65;
-  border-left: 3px solid var(--gold);
-}
-.widget-hint strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 0.8rem; }
 
 .hidden { display: none !important; }
 
@@ -444,49 +313,43 @@ tr:hover td { background: rgba(0,0,0,0.02); }
 <!-- CLOCK -->
 <div class="clock-bar">
   <div class="clock-inner">
-    <div class="clock-time-row">
+    <!-- Analog Clock -->
+    <div class="analog-clock-wrap">
+      <svg class="analog-clock-svg" id="analogClock" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="85" cy="85" r="82" fill="none" stroke="rgba(26,58,92,0.10)" stroke-width="3"/>
+        <defs>
+          <radialGradient id="faceGrad" cx="40%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#e8eef5"/>
+          </radialGradient>
+          <radialGradient id="centerGrad" cx="50%" cy="30%" r="80%">
+            <stop offset="0%" stop-color="#2a5c8a"/>
+            <stop offset="100%" stop-color="#0d2640"/>
+          </radialGradient>
+          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.18)"/>
+          </filter>
+        </defs>
+        <circle cx="85" cy="85" r="80" fill="url(#faceGrad)" stroke="#1a3a5c" stroke-width="4" filter="url(#shadow)"/>
+        <circle cx="85" cy="85" r="76" fill="none" stroke="#f5a623" stroke-width="1.5" opacity="0.5"/>
+        <g id="tickMarks"></g>
+        <text x="85" y="58" text-anchor="middle" font-size="11" fill="#1a3a5c" opacity="0.18" font-family="serif">ॐ</text>
+        <text x="85" y="108" text-anchor="middle" font-size="5.5" fill="#6b7f94" letter-spacing="0.5">दुर्गा विद्यापीठ</text>
+        <line id="hourHand"   x1="85" y1="85" x2="85" y2="45" stroke="#1a3a5c" stroke-width="5"   stroke-linecap="round"/>
+        <line id="minuteHand" x1="85" y1="85" x2="85" y2="30" stroke="#2a5c8a" stroke-width="3.5" stroke-linecap="round"/>
+        <line id="secondHand" x1="85" y1="95" x2="85" y2="22" stroke="#e85d26" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="85" cy="85" r="6" fill="url(#centerGrad)"/>
+        <circle cx="85" cy="85" r="3" fill="#f5a623"/>
+        <circle cx="85" cy="85" r="1.2" fill="white"/>
+      </svg>
+    </div>
+    <div class="clock-digital-row">
       <div class="clock-time" id="clockHM">--:--</div>
       <div class="clock-seconds" id="clockSec">:--</div>
       <div class="clock-ampm" id="clockAmPm">--</div>
     </div>
     <div class="clock-date" id="dateDisplay">--</div>
-    <div class="anim-wrap" style="position:relative;">
-      <div class="anim-canvas-wrap">
-        <canvas id="animCanvas" height="44"></canvas>
-      </div>
-      <button class="anim-dots-btn" onclick="toggleAnimPicker()" title="Animation छान्नुस्">
-        <span class="anim-dot active" id="dot0"></span>
-        <span class="anim-dot" id="dot1"></span>
-        <span class="anim-dot" id="dot2"></span>
-        <span class="anim-dot" id="dot3"></span>
-        <span class="anim-dot" id="dot4"></span>
-        <span class="anim-dot" id="dot5"></span>
-        <span class="anim-dot" id="dot6"></span>
-        <span class="anim-dot" id="dot7"></span>
-        <span class="anim-dot" id="dot8"></span>
-        <span class="anim-dot" id="dot9"></span>
-        <span class="anim-dot" id="dot10"></span>
-        <span class="anim-dot" id="dot11"></span>
-        <span class="anim-dot" id="dot12"></span>
-        <span class="anim-dot" id="dot13"></span>
-      </button>
-      <div class="anim-picker" id="animPicker">
-        <button class="anim-option selected" onclick="setAnim(0)"><span class="anim-icon">💓</span> ECG Heartbeat</button>
-        <button class="anim-option" onclick="setAnim(1)"><span class="anim-icon">🌊</span> पानी बग्ने Wave</button>
-        <button class="anim-option" onclick="setAnim(2)"><span class="anim-icon">🫧</span> Breathing Circle</button>
-        <button class="anim-option" onclick="setAnim(3)"><span class="anim-icon">🎵</span> Equalizer Bars</button>
-        <button class="anim-option" onclick="setAnim(4)"><span class="anim-icon">⭐</span> Star Twinkle</button>
-        <button class="anim-option" onclick="setAnim(5)"><span class="anim-icon">🔥</span> Fire Flame</button>
-        <button class="anim-option" onclick="setAnim(6)"><span class="anim-icon">🌸</span> Falling Petals</button>
-        <button class="anim-option" onclick="setAnim(7)"><span class="anim-icon">🌀</span> DNA Helix</button>
-        <button class="anim-option" onclick="setAnim(8)"><span class="anim-icon">❄️</span> Snow Fall</button>
-        <button class="anim-option" onclick="setAnim(9)"><span class="anim-icon">🪐</span> Orbit Rings</button>
-        <button class="anim-option" onclick="setAnim(10)"><span class="anim-icon">🐍</span> Snake Wave</button>
-        <button class="anim-option" onclick="setAnim(11)"><span class="anim-icon">🌈</span> Color Pulse</button>
-        <button class="anim-option" onclick="setAnim(12)"><span class="anim-icon">☁️</span> Floating Clouds</button>
-        <button class="anim-option" onclick="setAnim(13)"><span class="anim-icon">✨</span> Sparkle Dots</button>
-      </div>
-    </div>
+
   </div>
 </div>
 
@@ -498,7 +361,6 @@ tr:hover td { background: rgba(0,0,0,0.02); }
   <button class="tab active" onclick="showView('class')">🏫 कक्षा</button>
   <button class="tab" onclick="showView('teacher')">👨‍🏫 शिक्षक</button>
   <button class="tab" onclick="showView('full')">📋 तालिका</button>
-  <button class="tab" onclick="showView('widget')">🔲 Widget</button>
 </div>
 
 <!-- CLASS VIEW -->
@@ -520,46 +382,6 @@ tr:hover td { background: rgba(0,0,0,0.02); }
 </div>
 
 <!-- WIDGET VIEW -->
-<div id="widgetView" class="hidden">
-  <div class="widget-section">
-    <div class="widget-title">📱 Mobile Widget Preview</div>
-    <div class="widget-preview">
-      <div class="widget-row">
-        <!-- Small Widget -->
-        <div class="widget-sm" id="widgetSm">
-          <div>
-            <div class="w-label">अहिले</div>
-            <div class="w-period" id="wSmPeriod">—</div>
-            <div class="w-time" id="wSmTime">—</div>
-          </div>
-          <div>
-            <div class="w-progress"><div class="w-progress-fill" id="wSmProg" style="width:0%"></div></div>
-            <div style="font-size:0.55rem;opacity:0.5;margin-top:4px;">पिरेड ट्र्याकर</div>
-          </div>
-        </div>
-      </div>
-      <!-- Medium Widget -->
-      <div class="widget-md" id="widgetMd">
-        <div class="w-md-top">
-          <div class="w-md-school">श्री दुर्गा वैदिक<br>संस्कृत विद्यापीठ</div>
-          <div class="w-md-time" id="wMdTime">--:--</div>
-        </div>
-        <div>
-          <div class="w-md-period" id="wMdPeriod">—</div>
-          <div class="w-md-sub" id="wMdSub">—</div>
-          <div class="w-md-remaining" id="wMdRem">—</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="widget-hint">
-      <strong>📲 Widget थप्ने तरिका</strong>
-      <b>Android:</b> Home screen मा लामो press → Widgets → Browser/PWA widget<br>
-      <b>iPhone (iOS 16+):</b> Home screen लामो press → + → खोज्नुहोस् "Safari" वा "Shortcuts" → Add<br>
-      <b>सबैभन्दा राम्रो:</b> पहिले App Install गर्नुहोस् (⋮ menu → Install), त्यसपछि widget देखिन्छ
-    </div>
-  </div>
-</div>
 
 <div class="footer">
   ⚡ प्रत्येक सेकेन्ड स्वतः अपडेट
@@ -619,6 +441,70 @@ const NP = n => String(n).replace(/[0-9]/g, d => '०१२३४५६७८९
 const pad2NP = n => NP(String(n).padStart(2,'0'));
 
 // ── CLOCK ──
+// ── ANALOG CLOCK ──
+(function(){
+  const NS='http://www.w3.org/2000/svg';
+  // tick marks बनाउने
+  const tg = document.getElementById('tickMarks');
+  const allNums=['१२','१','२','३','४','५','६','७','८','९','१०','११'];
+  if(tg){
+    // ── 60 minute ticks ──
+    for(let i=0;i<60;i++){
+      const rad = i*6*Math.PI/180;
+      const isHour = i%5===0;
+      const isQuarter = i%15===0;
+      const r1=72;
+      const r2 = isQuarter?62 : isHour?65 : 69;
+      const sw = isQuarter?2.5 : isHour?1.8 : 0.8;
+      const op = isQuarter?'0.7' : isHour?'0.5' : '0.22';
+      const x1=85+r1*Math.sin(rad), y1=85-r1*Math.cos(rad);
+      const x2=85+r2*Math.sin(rad), y2=85-r2*Math.cos(rad);
+      const line=document.createElementNS(NS,'line');
+      line.setAttribute('x1',x1); line.setAttribute('y1',y1);
+      line.setAttribute('x2',x2); line.setAttribute('y2',y2);
+      line.setAttribute('stroke','#1a3a5c');
+      line.setAttribute('stroke-width',sw);
+      line.setAttribute('opacity',op);
+      line.setAttribute('stroke-linecap','round');
+      tg.appendChild(line);
+    }
+    // ── 1 देखि 12 सबै नम्बर ──
+    for(let i=0;i<12;i++){
+      const rad = i*30*Math.PI/180;
+      const isQuarter = i%3===0;
+      const nr = isQuarter ? 52 : 54;
+      const nx=85+nr*Math.sin(rad), ny=85-nr*Math.cos(rad);
+      const num=document.createElementNS(NS,'text');
+      num.setAttribute('x',nx); num.setAttribute('y',ny);
+      num.setAttribute('text-anchor','middle');
+      num.setAttribute('dominant-baseline','central');
+      num.setAttribute('font-size', isQuarter?'9':'7.5');
+      num.setAttribute('font-weight', isQuarter?'700':'600');
+      num.setAttribute('fill','#1a3a5c');
+      num.setAttribute('opacity', isQuarter?'0.75':'0.5');
+      num.setAttribute('font-family','Noto Serif Devanagari,serif');
+      num.textContent=allNums[i];
+      tg.appendChild(num);
+    }
+  }
+
+  function setRotation(id, deg){
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.setAttribute('transform','rotate('+deg+',85,85)');
+  }
+
+  
+  window._analogUpdate = function(h12,m,s){
+    const sDeg  = s*6;
+    const mDeg  = m*6 + s*0.1;
+    const hDeg  = (h12%12)*30 + m*0.5;
+    setRotation('hourHand',   hDeg);
+    setRotation('minuteHand', mDeg);
+    setRotation('secondHand', sDeg);
+  };
+})();
+
 function updateClock() {
   const now = new Date();
   const h24 = now.getHours();
@@ -627,18 +513,18 @@ function updateClock() {
   const ampm = h24<12?'बिहान':h24<17?'दिउँसो':'बेलुकी';
   const h12  = h24%12===0?12:h24%12;
 
-  // Devanagari digits — घडी
-  document.getElementById('clockHM').textContent   = `${pad2NP(h12)}:${pad2NP(m)}`;
-  document.getElementById('clockSec').textContent  = `:${pad2NP(s)}`;
+  if(window._analogUpdate) _analogUpdate(h12,m,s);
+
+  document.getElementById('clockHM').textContent   = pad2NP(h12)+':'+pad2NP(m);
+  document.getElementById('clockSec').textContent  = ':'+pad2NP(s);
   document.getElementById('clockAmPm').textContent = ampm;
 
   const days=['आइतबार','सोमबार','मंगलबार','बुधबार','बिहिबार','शुक्रबार','शनिबार'];
   const months=['जनवरी','फेब्रुअरी','मार्च','अप्रिल','मे','जून','जुलाई','अगस्ट','सेप्टेम्बर','अक्टोबर','नोभेम्बर','डिसेम्बर'];
-  document.getElementById('dateDisplay').textContent=`${days[now.getDay()]}, ${NP(now.getDate())} ${months[now.getMonth()]} ${NP(now.getFullYear())}`;
+  document.getElementById('dateDisplay').textContent=days[now.getDay()]+', '+pad2NP(now.getDate())+' '+months[now.getMonth()]+' '+pad2NP(now.getFullYear());
 
   const nm=h24*60+m;
-  // timeStr पनि देवनागरीमा
-  updateAll(nm, `${pad2NP(h12)}:${pad2NP(m)}`, ampm);
+  updateAll(nm, pad2NP(h12)+':'+pad2NP(m), ampm);
 }
 
 // time string "10:10" → "१०:१०"
@@ -658,17 +544,13 @@ function updateAll(nm, timeStr, ampm) {
       <div class="banner-status">⏳ ${NP(rem)} मिनेट बाँकी छ</div>
       <div class="progress-bar-wrap"><div class="progress-bar" style="width:${prog}%"></div></div>
     </div>`;
-    updateWidget(pIdx, nm, prog, rem, timeStr);
   } else if(isBreak(nm)){
     const khaja = khajaList[new Date().getDay()] || '—';
     el.innerHTML=`<div class="no-period-banner"><div class="icon">🍽️</div><p>मध्यान्तर (Lunch Break)<br>१३:५५ – १४:४० बजे</p><div class="khaja-today">आजको खाजा: <strong>${khaja}</strong></div></div>`;
-    updateWidgetBreak(timeStr);
   } else if(isSchool(nm)){
     el.innerHTML=`<div class="no-period-banner"><div class="icon">🔔</div><p>पिरेड परिवर्तन हुँदैछ...</p></div>`;
-    updateWidgetIdle(timeStr);
   } else {
     el.innerHTML=`<div class="no-period-banner"><div class="icon">🌙</div><p>विद्यालय समय छैन<br>बिहान १०:१० देखि बेलुकी ४:०० बजेसम्म</p></div>`;
-    updateWidgetIdle(timeStr);
   }
 
   renderClassView(pIdx);
@@ -677,36 +559,6 @@ function updateAll(nm, timeStr, ampm) {
 }
 
 // ── WIDGET UPDATE ──
-function updateWidget(pIdx, nm, prog, rem, timeStr) {
-  const p=periods[pIdx];
-
-  document.getElementById('wSmPeriod').textContent = `${p.name}`;
-  document.getElementById('wSmTime').textContent   = `${npTime(p.start)}–${npTime(p.end)}`;
-  document.getElementById('wSmProg').style.width   = `${prog}%`;
-  document.getElementById('wMdTime').textContent   = timeStr;
-  document.getElementById('wMdPeriod').textContent = `${p.name} पिरेड`;
-  document.getElementById('wMdSub').textContent    = `⏰ ${npTime(p.start)}–${npTime(p.end)} बजे`;
-  document.getElementById('wMdRem').textContent    = `⏳ ${NP(rem)} मिनेट बाँकी`;
-}
-function updateWidgetBreak(t){
-  const khaja = khajaList[new Date().getDay()] || '—';
-  document.getElementById('wSmPeriod').textContent='मध्यान्तर';
-  document.getElementById('wSmTime').textContent='१३:५५–१४:४०';
-  document.getElementById('wSmProg').style.width='100%';
-  document.getElementById('wMdTime').textContent=t;
-  document.getElementById('wMdPeriod').textContent='मध्यान्तर 🍽️';
-  document.getElementById('wMdSub').textContent=`आजको खाजा: ${khaja}`;
-  document.getElementById('wMdRem').textContent='१४:४० मा सकिन्छ';
-}
-function updateWidgetIdle(t){
-  document.getElementById('wSmPeriod').textContent='—';
-  document.getElementById('wSmTime').textContent='पिरेड छैन';
-  document.getElementById('wSmProg').style.width='0%';
-  document.getElementById('wMdTime').textContent=t;
-  document.getElementById('wMdPeriod').textContent='विद्यालय बन्द 🌙';
-  document.getElementById('wMdSub').textContent='';
-  document.getElementById('wMdRem').textContent='';
-}
 
 // ── CLASS VIEW ──
 function renderClassView(pIdx) {
@@ -770,14 +622,12 @@ function renderFullTable(pIdx) {
 
 // ── TABS ──
 function showView(view) {
-  const views=['class','teacher','full','widget'];
-  const ids={class:'classView',teacher:'teacherView',full:'fullView',widget:'widgetView'};
+  const views=['class','teacher','full'];
+  const ids={class:'classView',teacher:'teacherView',full:'fullView'};
   views.forEach((v,i)=>{
     document.getElementById(ids[v]).classList.toggle('hidden',v!==view);
     document.querySelectorAll('.tab')[i].classList.toggle('active',v===view);
   });
-  // Widget tab खोल्दा data refresh गर्ने
-  if(view==='widget') updateClock();
 }
 
 // ── PWA INSTALL ──
@@ -797,432 +647,13 @@ window.addEventListener('appinstalled',()=>document.getElementById('installBanne
 // ── SERVICE WORKER ──
 if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(console.error));
 
-// ── ANIMATION PICKER ──
-(function(){
-  const canvas = document.getElementById('animCanvas');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  canvas.width = canvas.offsetWidth || canvas.parentElement.offsetWidth || window.innerWidth;
-  const W = canvas.width, H = 44;
-  window.addEventListener('resize', function(){ canvas.width = canvas.parentElement.offsetWidth || window.innerWidth; });
-  let currentAnim = parseInt(localStorage.getItem('clockAnim')||'0');
-  let raf;
-  let t = 0;
-
-  const PRIMARY = '#1a3a5c';
-
-  // ── 0: ECG Heartbeat ──
-  function drawECG(){
-    ctx.clearRect(0,0,W,H);
-    ctx.strokeStyle = PRIMARY;
-    ctx.lineWidth = 2;
-    ctx.globalAlpha = 0.8;
-    ctx.beginPath();
-    const speed = (t * 80) % (W * 2);
-    const seg = [0,0, 15,0, 19,-18, 23,19, 27,-8, 31,3, 35,0, 60,0];
-    for(let x=0; x<W+80; x++){
-      const sx = (x - speed + W*2) % 80;
-      let y = H/2;
-      if(sx<15) y=H/2;
-      else if(sx<19) y=H/2 + (sx-15)*(-18/4);
-      else if(sx<23) y=H/2 + -18 + (sx-19)*(37/4);
-      else if(sx<27) y=H/2 + 19 + (sx-23)*(-27/4);
-      else if(sx<31) y=H/2 + -8 + (sx-27)*(11/4);
-      else if(sx<35) y=H/2 + 3 + (sx-31)*(-3/4);
-      else y=H/2;
-      if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-    }
-    ctx.stroke();
-    ctx.globalAlpha = 1;
-    t += 0.016;
-  }
-
-  // ── 1: Water Wave ──
-  function drawWave(){
-    ctx.clearRect(0,0,W,H);
-    ctx.strokeStyle = '#2a5c8a';
-    ctx.lineWidth = 2.2;
-    ctx.globalAlpha = 0.7;
-    // wave 1
-    ctx.beginPath();
-    for(let x=0;x<=W;x++){
-      const y = H/2 + Math.sin((x/W)*Math.PI*4 + t*3)*10;
-      x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
-    }
-    ctx.stroke();
-    // wave 2
-    ctx.globalAlpha = 0.35;
-    ctx.beginPath();
-    for(let x=0;x<=W;x++){
-      const y = H/2 + Math.sin((x/W)*Math.PI*4 + t*3 + 1.5)*6;
-      x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
-    }
-    ctx.stroke();
-    ctx.globalAlpha = 1;
-    t += 0.016;
-  }
-
-  // ── 2: Breathing Circle ──
-  function drawBreath(){
-    ctx.clearRect(0,0,W,H);
-    const scale = 0.7 + 0.3*((Math.sin(t*1.2)+1)/2);
-    const r = 16 * scale;
-    const cx = W/2, cy = H/2;
-    // outer glow
-    const grad = ctx.createRadialGradient(cx,cy,r*0.3,cx,cy,r*1.4);
-    grad.addColorStop(0,'rgba(26,58,92,0.18)');
-    grad.addColorStop(1,'rgba(26,58,92,0)');
-    ctx.beginPath();
-    ctx.arc(cx,cy,r*1.4,0,Math.PI*2);
-    ctx.fillStyle = grad;
-    ctx.fill();
-    // circle
-    ctx.beginPath();
-    ctx.arc(cx,cy,r,0,Math.PI*2);
-    ctx.strokeStyle = PRIMARY;
-    ctx.lineWidth = 2.2;
-    ctx.globalAlpha = 0.75 + 0.25*scale;
-    ctx.stroke();
-    // inner dot
-    ctx.beginPath();
-    ctx.arc(cx,cy,r*0.22,0,Math.PI*2);
-    ctx.fillStyle = PRIMARY;
-    ctx.fill();
-    ctx.globalAlpha = 1;
-    t += 0.016;
-  }
-
-  // ── 3: Equalizer Bars ──
-  function drawEQ(){
-    ctx.clearRect(0,0,W,H);
-    const bars = 12;
-    const bw = 10, gap = 8;
-    const total = bars*(bw+gap)-gap;
-    const startX = (W-total)/2;
-    for(let i=0;i<bars;i++){
-      const h = 8 + 28*((Math.sin(t*3+i*0.7)+1)/2);
-      const x = startX + i*(bw+gap);
-      const y = (H-h)/2;
-      const grad = ctx.createLinearGradient(0,y,0,y+h);
-      grad.addColorStop(0,'#2a5c8a');
-      grad.addColorStop(1,'#1a3a5c');
-      ctx.fillStyle = grad;
-      ctx.globalAlpha = 0.75;
-      ctx.beginPath();
-      ctx.roundRect(x,y,bw,h,3);
-      ctx.fill();
-    }
-    ctx.globalAlpha = 1;
-    t += 0.016;
-  }
-
-  // ── 4: Star Twinkle ──
-  const stars = Array.from({length:18}, function(){
-    return {x:Math.random()*W, y:Math.random()*H, r:Math.random()*2.5+0.8, phase:Math.random()*Math.PI*2, spd:Math.random()*1.5+0.8};
-  });
-  function drawStars(){
-    ctx.clearRect(0,0,W,H);
-    stars.forEach(function(s){
-      const alpha = 0.2 + 0.8*((Math.sin(t*s.spd+s.phase)+1)/2);
-      const r = s.r*(0.6+0.4*((Math.sin(t*s.spd+s.phase)+1)/2));
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, r, 0, Math.PI*2);
-      ctx.fillStyle = PRIMARY;
-      ctx.globalAlpha = alpha;
-      ctx.fill();
-      // cross sparkle
-      ctx.strokeStyle = PRIMARY;
-      ctx.lineWidth = 0.8;
-      ctx.globalAlpha = alpha*0.5;
-      ctx.beginPath();
-      ctx.moveTo(s.x-r*2,s.y); ctx.lineTo(s.x+r*2,s.y);
-      ctx.moveTo(s.x,s.y-r*2); ctx.lineTo(s.x,s.y+r*2);
-      ctx.stroke();
-    });
-    ctx.globalAlpha = 1;
-    t += 0.016;
-  }
-
-  // ── 5: Fire Flame ──
-  function drawFire(){
-    ctx.clearRect(0,0,W,H);
-    const flames = 7;
-    for(let i=0;i<flames;i++){
-      const cx = W/2 + (i-3)*26;
-      const h2 = 10 + 22*((Math.sin(t*2.5+i*1.1)+1)/2);
-      const grad = ctx.createLinearGradient(cx,H,cx,H-h2-8);
-      grad.addColorStop(0,'rgba(232,93,38,0.9)');
-      grad.addColorStop(0.5,'rgba(245,166,35,0.7)');
-      grad.addColorStop(1,'rgba(255,220,100,0)');
-      ctx.beginPath();
-      ctx.ellipse(cx, H-2, 7, h2, Math.sin(t+i)*0.18, 0, Math.PI*2);
-      ctx.fillStyle = grad;
-      ctx.globalAlpha = 0.85;
-      ctx.fill();
-    }
-    ctx.globalAlpha = 1;
-    t += 0.016;
-  }
-
-  // ── 6: Falling Petals ──
-  const petals = Array.from({length:14}, function(){
-    return {x:Math.random()*W, y:Math.random()*H, spd:0.3+Math.random()*0.5, sw:Math.random()*2-1, r:Math.random()*3+2, phase:Math.random()*Math.PI*2};
-  });
-  function drawPetals(){
-    ctx.clearRect(0,0,W,H);
-    petals.forEach(function(p){
-      p.y += p.spd;
-      p.x += Math.sin(t*1.2+p.phase)*0.6;
-      if(p.y > H+5){ p.y=-5; p.x=Math.random()*W; }
-      ctx.beginPath();
-      ctx.ellipse(p.x, p.y, p.r, p.r*1.7, t+p.phase, 0, Math.PI*2);
-      ctx.fillStyle = '#e85d26';
-      ctx.globalAlpha = 0.55;
-      ctx.fill();
-    });
-    ctx.globalAlpha = 1;
-    t += 0.016;
-  }
-
-  // ── 7: DNA Helix ──
-  function drawDNA(){
-    ctx.clearRect(0,0,W,H);
-    const step = 6;
-    for(let x=0;x<=W;x+=step){
-      const y1 = H/2 + Math.sin((x/W)*Math.PI*4 + t*2)*16;
-      const y2 = H/2 + Math.sin((x/W)*Math.PI*4 + t*2 + Math.PI)*16;
-      // strand 1
-      ctx.beginPath();
-      ctx.arc(x, y1, 3, 0, Math.PI*2);
-      ctx.fillStyle = PRIMARY;
-      ctx.globalAlpha = 0.75;
-      ctx.fill();
-      // strand 2
-      ctx.beginPath();
-      ctx.arc(x, y2, 3, 0, Math.PI*2);
-      ctx.fillStyle = '#e85d26';
-      ctx.globalAlpha = 0.75;
-      ctx.fill();
-      // rung
-      if(x%18===0){
-        ctx.beginPath();
-        ctx.moveTo(x,y1); ctx.lineTo(x,y2);
-        ctx.strokeStyle = '#aaa';
-        ctx.lineWidth = 1;
-        ctx.globalAlpha = 0.3;
-        ctx.stroke();
-      }
-    }
-    ctx.globalAlpha = 1;
-    t += 0.016;
-  }
-
-  // ── 8: Snow Fall ──
-  const flakes = Array.from({length:22}, function(){
-    return {x:Math.random()*W, y:Math.random()*H, spd:0.2+Math.random()*0.4, r:Math.random()*2.5+0.8, phase:Math.random()*Math.PI*2};
-  });
-  function drawSnow(){
-    ctx.clearRect(0,0,W,H);
-    flakes.forEach(function(f){
-      f.y += f.spd;
-      f.x += Math.sin(t+f.phase)*0.4;
-      if(f.y>H+4){f.y=-4;f.x=Math.random()*W;}
-      ctx.beginPath();
-      ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
-      ctx.fillStyle = PRIMARY;
-      ctx.globalAlpha = 0.45+0.3*((Math.sin(t+f.phase)+1)/2);
-      ctx.fill();
-    });
-    ctx.globalAlpha=1;
-    t+=0.016;
-  }
-
-  // ── 9: Orbit Rings ──
-  function drawOrbit(){
-    ctx.clearRect(0,0,W,H);
-    const cx=W/2, cy=H/2;
-    [[28,1.0,0],[20,1.6,1],[13,2.2,2]].forEach(function(ring,i){
-      const rx=ring[0], spd=ring[1], off=ring[2];
-      ctx.beginPath();
-      ctx.ellipse(cx,cy,rx,rx*0.28,0,0,Math.PI*2);
-      ctx.strokeStyle=PRIMARY;
-      ctx.lineWidth=1;
-      ctx.globalAlpha=0.2;
-      ctx.stroke();
-      // planet
-      const angle=t*spd+off;
-      const px=cx+Math.cos(angle)*rx;
-      const py=cy+Math.sin(angle)*rx*0.28;
-      const pr=3.5-i*0.7;
-      ctx.beginPath();
-      ctx.arc(px,py,pr,0,Math.PI*2);
-      ctx.fillStyle=i===0?PRIMARY:i===1?'#e85d26':'#f5a623';
-      ctx.globalAlpha=0.85;
-      ctx.fill();
-    });
-    ctx.globalAlpha=1;
-    t+=0.016;
-  }
-
-  // ── 10: Snake Wave ──
-  function drawSnake(){
-    ctx.clearRect(0,0,W,H);
-    const segs=40;
-    ctx.lineWidth=4;
-    ctx.lineCap='round';
-    ctx.lineJoin='round';
-    for(let i=0;i<segs;i++){
-      const x=(i/segs)*W;
-      const y=H/2+Math.sin((x/W)*Math.PI*3+t*2.5)*15;
-      const nx=((i+1)/segs)*W;
-      const ny=H/2+Math.sin((nx/W)*Math.PI*3+t*2.5)*15;
-      const alpha=0.3+0.7*(i/segs);
-      const hue=200+(i/segs)*40;
-      ctx.beginPath();
-      ctx.moveTo(x,y); ctx.lineTo(nx,ny);
-      ctx.strokeStyle='hsl('+hue+',60%,35%)';
-      ctx.globalAlpha=alpha;
-      ctx.stroke();
-    }
-    // head
-    const hx=W;
-    const hy=H/2+Math.sin(Math.PI*3+t*2.5)*15;
-    ctx.beginPath();
-    ctx.arc(hx,hy,5,0,Math.PI*2);
-    ctx.fillStyle=PRIMARY;
-    ctx.globalAlpha=1;
-    ctx.fill();
-    ctx.globalAlpha=1;
-    t+=0.016;
-  }
-
-  // ── 11: Color Pulse ──
-  function drawColorPulse(){
-    ctx.clearRect(0,0,W,H);
-    const bars=20;
-    for(let i=0;i<bars;i++){
-      const x=(i/bars)*W;
-      const bw=W/bars-2;
-      const h2=6+30*((Math.sin(t*2+i*0.5)+1)/2);
-      const hue=(i/bars)*280+t*30;
-      const grad=ctx.createLinearGradient(0,H/2-h2/2,0,H/2+h2/2);
-      grad.addColorStop(0,'hsla('+hue+',70%,50%,0.9)');
-      grad.addColorStop(1,'hsla('+(hue+40)+',70%,40%,0.9)');
-      ctx.fillStyle=grad;
-      ctx.globalAlpha=0.8;
-      ctx.beginPath();
-      ctx.roundRect(x+1,H/2-h2/2,bw,h2,2);
-      ctx.fill();
-    }
-    ctx.globalAlpha=1;
-    t+=0.016;
-  }
-
-  // ── 12: Floating Clouds ──
-  const clouds=[
-    {x:20,y:22,spd:0.3,r:14},{x:80,y:15,spd:0.2,r:10},
-    {x:140,y:25,spd:0.35,r:12},{x:190,y:18,spd:0.25,r:9}
-  ];
-  function drawCloud(cx,cy,r){
-    ctx.beginPath();
-    ctx.arc(cx,cy,r,0,Math.PI*2);
-    ctx.arc(cx+r*0.9,cy-r*0.3,r*0.75,0,Math.PI*2);
-    ctx.arc(cx+r*1.7,cy,r*0.85,0,Math.PI*2);
-    ctx.arc(cx+r*0.8,cy+r*0.5,r*0.6,0,Math.PI*2);
-    ctx.fillStyle=PRIMARY;
-    ctx.fill();
-  }
-  function drawClouds(){
-    ctx.clearRect(0,0,W,H);
-    ctx.globalAlpha=0.18;
-    clouds.forEach(function(c){
-      c.x+=c.spd;
-      if(c.x-c.r>W+30) c.x=-30;
-      drawCloud(c.x,c.y,c.r);
-    });
-    ctx.globalAlpha=1;
-    t+=0.016;
-  }
-
-  // ── 13: Sparkle Dots ──
-  const sparkles=Array.from({length:20},function(){
-    return {x:Math.random()*W,y:Math.random()*H,phase:Math.random()*Math.PI*2,spd:1+Math.random()*2,r:1+Math.random()*2.5};
-  });
-  function drawSparkles(){
-    ctx.clearRect(0,0,W,H);
-    sparkles.forEach(function(s){
-      const a=(Math.sin(t*s.spd+s.phase)+1)/2;
-      if(a<0.05) return;
-      const r=s.r*a;
-      // glow
-      const grad=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,r*4);
-      grad.addColorStop(0,'rgba(26,58,92,'+a*0.5+')');
-      grad.addColorStop(1,'rgba(26,58,92,0)');
-      ctx.beginPath();
-      ctx.arc(s.x,s.y,r*4,0,Math.PI*2);
-      ctx.fillStyle=grad;
-      ctx.fill();
-      // core
-      ctx.beginPath();
-      ctx.arc(s.x,s.y,r,0,Math.PI*2);
-      ctx.fillStyle=PRIMARY;
-      ctx.globalAlpha=a;
-      ctx.fill();
-      // cross
-      ctx.strokeStyle=PRIMARY;
-      ctx.lineWidth=0.8;
-      ctx.globalAlpha=a*0.6;
-      ctx.beginPath();
-      ctx.moveTo(s.x-r*3,s.y);ctx.lineTo(s.x+r*3,s.y);
-      ctx.moveTo(s.x,s.y-r*3);ctx.lineTo(s.x,s.y+r*3);
-      ctx.stroke();
-    });
-    ctx.globalAlpha=1;
-    t+=0.016;
-  }
-
-  const animFns = [drawECG, drawWave, drawBreath, drawEQ, drawStars, drawFire, drawPetals, drawDNA, drawSnow, drawOrbit, drawSnake, drawColorPulse, drawClouds, drawSparkles];
-
-  function loop(){
-    animFns[currentAnim]();
-    raf = requestAnimationFrame(loop);
-  }
-
-  window.setAnim = function(idx){
-    currentAnim = idx;
-    localStorage.setItem('clockAnim', idx);
-    for(let i=0;i<14;i++){
-      const d=document.getElementById('dot'+i);
-      if(d) d.classList.toggle('active', i===idx);
-    }
-    document.querySelectorAll('.anim-option').forEach(function(el,i){
-      el.classList.toggle('selected', i===idx);
-    });
-    document.getElementById('animPicker').classList.remove('show');
-  };
-
-  window.toggleAnimPicker = function(){
-    document.getElementById('animPicker').classList.toggle('show');
-  };
-
-  // close picker on outside click
-  document.addEventListener('click', function(e){
-    if(!e.target.closest('.anim-wrap')) {
-      document.getElementById('animPicker').classList.remove('show');
-    }
-  });
-
-  // restore saved selection UI
-  setAnim(currentAnim);
-
-
-
-  loop();
-})();
 
 // ── INIT ──
-updateClock();
-setInterval(updateClock,1000);
+// तुरुन्तै र setInterval दुवै
+try { updateClock(); } catch(e){}
+setInterval(function(){
+  try { updateClock(); } catch(e){}
+}, 1000);
 </script>
 </body>
 </html>
